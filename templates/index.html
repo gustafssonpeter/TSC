@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183d36">
+  <title>Tunsta Social Club – medlemsregister</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', v=2) }}">
+  <script src="{{ url_for('static', filename='app.js', v=2) }}" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <nav class="tabs" aria-label="Huvudmeny" role="tablist">
+      <button class="tab-button active" id="tab-register" role="tab" aria-selected="true" aria-controls="register-panel" type="button">Registrering</button>
+      <button class="tab-button" id="tab-search" role="tab" aria-selected="false" aria-controls="search-panel" type="button">Visa och sök</button>
+    </nav>
+
+    <section class="panel" id="register-panel" role="tabpanel" aria-labelledby="tab-register">
+      <img class="banner" src="/tsc_logga.png" alt="Tunsta Social Club">
+      <div class="panel-heading">
+        <p class="eyebrow">MEDLEMSREGISTER</p>
+		<p class="intro">Registrering</p>
+      </div>
+
+      <form id="entry-form" class="entry-form">
+        <label class="field">
+          <span>Namn</span>
+          <input name="name" type="text" autocomplete="name" required>
+        </label>
+        <label class="field">
+          <span>E-post</span>
+          <input name="email" type="email" autocomplete="email" required>
+        </label>
+        <label class="paid-field" for="paid">
+          <input id="paid" name="paid" type="checkbox">
+          <span>Betalat</span>
+        </label>
+        <button class="button button-primary save-button" type="submit">Spara</button>
+      </form>
+      <p id="save-message" class="notice" role="status" aria-live="polite" hidden></p>
+      <div class="qr-section">
+        <img class="swish-qr" src="/swish-QR-small.png" alt="Swish QR-kod för TSC medlemskap">
+      </div>
+    </section>
+
+    <section class="panel" id="search-panel" role="tabpanel" aria-labelledby="tab-search" hidden>
+      <img class="banner" src="/tsc_logga.png" alt="Tunsta Social Club">
+      <div class="panel-heading">
+        <p class="eyebrow">MEDLEMSREGISTER</p>
+        <p class="intro">Sök och filtrera bland registrerade poster.</p>
+      </div>
+
+      <div class="filters" aria-label="Filtrera poster">
+        <label class="field"><span>Namn</span><input id="filter-name" type="search" placeholder="Sök namn"></label>
+        <label class="field"><span>E-post</span><input id="filter-email" type="search" placeholder="Sök e-post"></label>
+        <label class="field"><span>Betalat</span>
+          <select id="filter-paid">
+            <option value="">Alla</option>
+            <option value="true">Ja</option>
+            <option value="false">Nej</option>
+          </select>
+        </label>
+        <label class="field"><span>Datum och tid</span><input id="filter-date" type="search" placeholder="Sök datum eller tid"></label>
+      </div>
+
+      <p id="list-message" class="notice" role="status" aria-live="polite" hidden></p>
+      <div id="table-wrap" class="table-wrap" hidden>
+        <table>
+          <thead>
+            <tr><th scope="col">Namn</th><th scope="col">E-post</th><th scope="col">Betalat</th><th scope="col">Datum och tid</th><th scope="col"><span class="visually-hidden">Åtgärd</span></th></tr>
+          </thead>
+          <tbody id="entries-body"></tbody>
+        </table>
+      </div>
+      <p id="row-count" class="row-count" role="status" aria-live="polite" hidden></p>
+    </section>
+    <footer>Alla uppgifter sparas lokalt på den här datorn.</footer>
+  </main>
+
+  <dialog id="confirm-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-content">
+      <p id="dialog-title">Är du helt säker på att du vill</p>
+      <p>ta bort den här posten?</p>
+      <div class="dialog-actions">
+        <button id="confirm-yes" class="button button-danger" type="button">Ja</button>
+        <button id="confirm-no" class="button button-secondary" type="button">Nej</button>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>

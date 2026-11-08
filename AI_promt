@@ -1,0 +1,29 @@
+Bygg en enkel, responsiv webbapp på svenska för att registrera och söka bland poster. Använd loggan/bannern (tsc_logga.png) som finns bifogad i projektmappen och visa den längst upp på båda flikarna. Behåll bildfilen på sin plats och använd dess befintliga filnamn.
+
+Appen ska ha två flikar:
+
+1. Registrering
+
+Visa loggan längst upp, centrerad.
+Placera följande på en horisontell rad, i denna ordning: ett fält märkt Namn, ett fält märkt E-post, en kryssruta märkt Betalat och knappen Spara.
+När användaren trycker på Spara, spara uppgifterna i en CSV-fil som heter data.csv i projektmappen. Spara kryssrutan som true om den är ikryssad och false annars.
+Lägg till datum och tid för när posten sparas.
+Om CSV-filen inte finns ska appen skapa den med rubrikerna "Namn", "E-post", "Betalat" och "Datum och tid".
+Om filen redan finns ska den nya posten läggas till sist utan att befintliga rader ändras eller tas bort.
+
+2. Visa och sök
+
+Visa samma logga längst upp.
+Läs in och visa alla poster från CSV-filen i en tydlig tabell.
+Gör tabellen skrollbar så att man kan bläddra bland posterna.
+Lägg till filter för "Namn", "E-post", "Betalat" och "Datum och tid".
+Använd en enkel och lättläst design som fungerar på både mobil och dator.
+Visa ett tydligt meddelande när en post har sparats och när CSV-filen ännu inte innehåller några poster.
+Till höger om varje post ska det finnas en "Ta bort" knapp som tar bort motsvarande post i csv filen,
+När man trycker på "Ta bort" ska en dialog visas med texten "Är du säker!" samt två kannappar för ja och nej
+Trycker man ja ska posten tas bort och dialogen stängas
+Trycker man nej ska INTE posten tas bort men dialogen ska stängas
+
+Viktigt: Använd en liten lokal backend, till exempel Python med Flask, för att läsa och skriva CSV-filen. En vanlig webbsida som körs enbart i webbläsaren kan inte på ett tillförlitligt sätt skapa eller uppdatera en fil i projektmappen. Ge mig all nödvändig kod och tydliga instruktioner för hur jag startar appen.
+Appen ska bara köras lokalt på en dator.
+Den ska fungera på Linux, Mac och Windows OS
