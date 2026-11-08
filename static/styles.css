@@ -122,6 +122,8 @@ h1 { margin: 0; color: var(--forest-dark); font-size: clamp(1.65rem, 3vw, 2.15re
 .qr-section { display: flex; justify-content: center; margin: 28px auto 0; }
 .swish-qr { display: block; width: min(100%, 175px); height: auto; border-radius: 12px; }
 
+.list-actions { display: flex; justify-content: flex-end; margin: 0 0 14px; }
+
 .filters { display: grid; grid-template-columns: 1fr 1.2fr .75fr 1.25fr; gap: 14px; margin: 0 0 20px; }
 .table-wrap { max-height: 390px; overflow: auto; border: 1px solid var(--line); border-radius: 9px; }
 .row-count { margin: 12px 2px 0; color: var(--muted); text-align: right; font-size: .85rem; font-weight: 650; }

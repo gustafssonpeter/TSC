@@ -156,6 +156,22 @@ function renderEntries() {
 Object.values(filters).forEach((filter) => filter.addEventListener("input", renderEntries));
 filters.paid.addEventListener("change", renderEntries);
 
+document.querySelector("#export-emails").addEventListener("click", () => {
+  const emails = [...new Set(entries.map((entry) => entry["E-post"].trim()).filter(Boolean))];
+  if (emails.length === 0) {
+    showNotice(listMessage, "Det finns inga e-postadresser att exportera.");
+    return;
+  }
+
+  const blob = new Blob([emails.join(",")], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "e-postadresser.csv";
+  link.click();
+  URL.revokeObjectURL(url);
+});
+
 document.querySelector("#confirm-no").addEventListener("click", () => {
   pendingDeleteId = null;
   dialog.close();

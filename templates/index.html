@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#183d36">
   <title>Tunsta Social Club – medlemsregister</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', v=2) }}">
-  <script src="{{ url_for('static', filename='app.js', v=2) }}" defer></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', v=3) }}">
+  <script src="{{ url_for('static', filename='app.js', v=3) }}" defer></script>
 </head>
 <body>
   <main class="app-shell">
@@ -48,6 +48,10 @@
       <div class="panel-heading">
         <p class="eyebrow">MEDLEMSREGISTER</p>
         <p class="intro">Sök och filtrera bland registrerade poster.</p>
+      </div>
+
+      <div class="list-actions">
+        <button id="export-emails" class="button button-primary" type="button">Exportera e-postadresser</button>
       </div>
 
       <div class="filters" aria-label="Filtrera poster">
